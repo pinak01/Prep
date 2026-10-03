@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "IBM Plex Serif", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-ink: #0f172a;
+  --color-ink-muted: #475569;
+  --color-ink-faint: #94a3b8;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f8fafc;
+  --color-surface-sunken: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-accent: #1e3a5f;
+  --color-accent-hover: #16304f;
+  --color-accent-soft: #e8eef5;
+  --color-accent-muted: #3b6ea5;
+  --color-success: #166534;
+  --color-success-soft: #dcfce7;
+  --color-warning: #92400e;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #991b1b;
+  --color-danger-soft: #fee2e2;
+  --color-info: #1e40af;
+  --color-info-soft: #dbeafe;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-surface-sunken);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Study content prose */
+.prose-study h2 {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.75rem;
+  color: var(--color-ink);
+}
+
+.prose-study h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+  color: var(--color-ink);
+}
+
+.prose-study p {
+  margin: 0.75rem 0;
+  line-height: 1.7;
+  color: var(--color-ink);
+}
+
+.prose-study ul,
+.prose-study ol {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.prose-study li {
+  margin: 0.35rem 0;
+}
+
+.prose-study li::marker {
+  color: var(--color-ink-muted);
+}
+
+/* ——— Cute login (Soft Harbor) ——— */
+.login-cute-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, #e8eef5 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 80%, #dbeafe 0%, transparent 50%),
+    linear-gradient(165deg, #f8fafc 0%, #f1f5f9 45%, #e8eef5 100%);
+}
+
+.login-float-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(2px);
+  opacity: 0.55;
+  animation: login-float 9s ease-in-out infinite;
+}
+
+.login-float-orb-a {
+  width: 11rem;
+  height: 11rem;
+  left: 8%;
+  top: 18%;
+  background: #e8eef5;
+  animation-delay: 0s;
+}
+
+.login-float-orb-b {
+  width: 8rem;
+  height: 8rem;
+  right: 12%;
+  top: 28%;
+  background: #dbeafe;
+  animation-delay: -3s;
+}
+
+.login-float-orb-c {
+  width: 14rem;
+  height: 14rem;
+  left: 40%;
+  bottom: 6%;
+  background: #e8eef5;
+  animation-delay: -5.5s;
+}
+
+.login-seal {
+  animation: login-soft-pulse 4.5s ease-in-out infinite;
+}
+
+.login-card {
+  animation: login-rise 0.7s ease-out both;
+}
+
+@keyframes login-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes login-soft-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(30, 58, 95, 0.08);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 10px rgba(30, 58, 95, 0);
+  }
+}
+
+@keyframes login-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ——— Post-login reveal ——— */
+.login-reveal-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+.login-reveal-line-in {
+  animation: login-reveal-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes login-reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-float-orb,
+  .login-seal,
+  .login-card,
+  .login-reveal-line-in {
+    animation: none !important;
+  }
+}

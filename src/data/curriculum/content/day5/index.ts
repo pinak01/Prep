@@ -1,0 +1,5 @@
+export { m1Pages, d5p1, d5p2, d5p3, d5p4 } from './m1-oop-core'
+export { m2Pages, d5p5, d5p6, d5p7 } from './m2-relationships'
+export { m3Pages, d5p8, d5p9, d5p10 } from './m3-principles'
+export { m4Pages, d5p11, d5p12, d5p13, d5p14, d5p15 } from './m4-patterns'
+export { revisionPages, d5rev, d5traps, d5rapid } from './revision'
