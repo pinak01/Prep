@@ -1,6 +1,8 @@
+/**
+ * Shared auth helpers for Vercel serverless routes and Vite local middleware.
+ */
 import { createHmac, timingSafeEqual } from 'node:crypto'
 
-/** Canonical display names (login is case-insensitive). */
 export const CANONICAL_USERS = ['Mekhla', 'Pinak'] as const
 export type AllowedUsername = (typeof CANONICAL_USERS)[number]
 

@@ -8,7 +8,7 @@ import {
   sessionCookieHeader,
   validateCredentials,
   verifySessionToken,
-} from './_lib/auth.ts'
+} from './auth/_shared.ts'
 
 async function readBody(req: IncomingMessage): Promise<string> {
   const chunks: Buffer[] = []

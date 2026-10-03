@@ -3,7 +3,7 @@ import {
   createSessionToken,
   sessionCookieHeader,
   validateCredentials,
-} from '../_lib/auth'
+} from './_shared.js'
 
 function isSecure(req: VercelRequest): boolean {
   return req.headers['x-forwarded-proto'] === 'https'

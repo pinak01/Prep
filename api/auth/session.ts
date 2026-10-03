@@ -3,7 +3,7 @@ import {
   SESSION_COOKIE,
   parseCookies,
   verifySessionToken,
-} from '../_lib/auth'
+} from './_shared.js'
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') {

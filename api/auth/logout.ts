@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { clearSessionCookieHeader } from '../_lib/auth'
+import { clearSessionCookieHeader } from './_shared.js'
 
 function isSecure(req: VercelRequest): boolean {
   return req.headers['x-forwarded-proto'] === 'https'
